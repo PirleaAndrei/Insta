@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import {firebaseContext} from '../context/firebase';
 import * as ROUTES from '../constants/routes';
 import firebase from 'firebase';
+import UserContext from '../context/user';
 
 
 export default function Header() {
     
-    const user:{displayName:string} = {displayName:"dali"};
+    const user:{displayName:string} = {displayName:"pirlea"};
     
     return (
         <header className="h-16 bg-white border-b mb-8">
