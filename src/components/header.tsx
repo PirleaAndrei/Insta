@@ -7,7 +7,7 @@ import firebase from 'firebase';
 
 export default function Header() {
     
-    const user:{displayName:string} = {displayName:user};
+    const user:{displayName:string} = {displayName:"dali"};
     
     return (
         <header className="h-16 bg-white border-b mb-8">

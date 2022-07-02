@@ -3,8 +3,12 @@ import { Link,useHistory } from 'react-router-dom';
 import * as ROUTES from '../constants/routes';
 import { firebaseContext } from '../context/firebase';
 import firebase from 'firebase';
+import "../i18n"
+import { useTranslation } from 'react-i18next';
+
 
 export default function Login() {
+    const {t} = useTranslation()
     const history = useHistory();
     useEffect(() => {
         document.title="Login - Instagram"
@@ -49,7 +53,7 @@ export default function Login() {
                         aria-label="Enter your email address"
                         className="text-sm w-full mr-3 py-5 px-4 h-2 border rounded mb-2"
                         type="email"
-                        placeholder="Email address"
+                        placeholder={t("email")}
                         onChange={({target})=>setEmail(target.value)}
                         value={email}
                     />
@@ -57,7 +61,7 @@ export default function Login() {
                         aria-label="Enter your password"
                         className="text-sm w-full mr-3 py-5 px-4 h-2 border rounded mb-2"
                         type="password"
-                        placeholder="Password"
+                        placeholder={t("password")}
                         onChange={({target})=>setPassword(target.value)}
                         value={password}
                     />
@@ -66,16 +70,16 @@ export default function Login() {
                         type="submit"
                         className={`bg-blue-500 text-white w-full rounded h-8 font-bold${isInvalid && " cursor-not-allowed opacity-50 "}`}
                     >
-                        Log In
+                        {t("login_btn")}
                         
                     </button>
                 </form>
             </div>
             <div className="flex justify-center items-center flex-col w-full bg-white p-4 border">
                     <p className="text-sm">
-                        Don't have an account?{' '}
+                    {t("not_have_an_account")}{' '}
                         <Link to={ROUTES.SIGN_UP} className="font-bold">
-                            Sign up
+                        {t("sign_up_btn")}
                         </Link>
                     </p>
                 </div>

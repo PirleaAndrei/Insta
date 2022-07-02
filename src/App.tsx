@@ -4,6 +4,10 @@ import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 import * as ROUTES from "./constants/routes"
 import UserContext from './context/user';
 import useAuthListener from './hooks/use-auth-listener';
+import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
+
+
 const Dashboard = lazy(() => import ("./pages/dashboard"));
 const Login = lazy(()=> import ("./pages/login"));
 const SignUp=lazy(()=> import ("./pages/signup"));

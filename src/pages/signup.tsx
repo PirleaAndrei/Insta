@@ -3,8 +3,12 @@ import { Link, useHistory } from 'react-router-dom';
 import * as ROUTES from '../constants/routes';
 import firebase from 'firebase';
 import { doesUsernameExists } from '../services/firebase';
+import "../i18n"
+import { useTranslation } from 'react-i18next';
 
 export default function SignUp() {
+const {t} = useTranslation()
+
     useEffect(() => {
         document.title="SignUp - Instagram"
       }, []);
@@ -64,7 +68,7 @@ export default function SignUp() {
                             aria-label="Enter your username"
                             className="text-sm text-gray w-full mr-3 py-5 px-4 h-2 border bg-gray-background rounded mb-2"
                             type="text"
-                            placeholder="Username"
+                            placeholder={t("username")}
                             value={username}
                             onChange={({ target }) => setUsername(target.value.toLowerCase())}
                         />
@@ -72,7 +76,7 @@ export default function SignUp() {
                             aria-label="Enter your full name"
                             className="text-sm text-gray w-full mr-3 py-5 px-4 h-2 border bg-gray-background rounded mb-2"
                             type="text"
-                            placeholder="Full name"
+                            placeholder={t("full_name")}
                             value={fullName}
                             onChange={({ target }) => setFullName(target.value)}
                         />
@@ -80,7 +84,7 @@ export default function SignUp() {
                             aria-label="Enter your email address"
                             className="text-sm text-gray w-full mr-3 py-5 px-4 h-2 border bg-gray-background rounded mb-2"
                             type="email"
-                            placeholder="Email address"
+                            placeholder={t("email")}
                             value={email}
                             onChange={({ target }) => setEmail(target.value.toLowerCase())}
                         />
@@ -88,7 +92,7 @@ export default function SignUp() {
                             aria-label="Enter your password"
                             className="text-sm text-gray w-full mr-3 py-5 px-4 h-2 border bg-gray-background rounded mb-2"
                             type="password"
-                            placeholder="Password"
+                            placeholder={t("password")}
                             value={password}
                             onChange={({ target }) => setPassword(target.value)}
                         />
@@ -97,16 +101,18 @@ export default function SignUp() {
                             type="submit"
                             className={`bg-blue-500 text-white w-full rounded h-8 font-bold ${ isInvalid && 'cursor-not-allowed opacity-50'
                         }`}>
-                            Sign Up
+                            
+                            {t("sign_up_btn")}
                         </button>
                     </form>
                 </div>
                 <div className="flex justify-center items-center flex-col w-full bg-white p-4 border">
                     <p className="text-sm">
-                        Have an account?{` `}
+                        {t("have_an_account")}{` `}
                         <Link to={ROUTES.LOGIN} className="font-bold text-blue">
-                            Login
-                        </Link>
+                          
+                         { t("login_btn")}
+                      </Link>
                     </p>
                 </div>
             </div>
